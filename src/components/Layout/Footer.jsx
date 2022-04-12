@@ -12,9 +12,10 @@ const Container = styled.div`
 const Footer = ({ isSignedIn }) => {
   return (
     <Container>
-      <p className="copyright" style={{ color: isSignedIn ? '#000' : '#fff' }}>
+      <p className="copyright text-xl" style={{ color: isSignedIn ? '#000' : '#fff' }}>
         {new Date().getFullYear()} © Array[6]. All Rights Reserved.
       </p>
+      
     </Container>
   );
 };
