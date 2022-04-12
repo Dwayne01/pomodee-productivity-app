@@ -1,0 +1,117 @@
+@media screen and (max-width: 450px) {
+  .FriendsList {
+    position: relative;
+  }
+
+  .friendsStatPage {
+    position: absolute;
+    margin-left: 0 !important;
+    padding-left: 40px !important;
+    background-color: white;
+    border: none !important;
+    left: -4.5rem;
+    top: 5.5rem;
+    transform: translateX(3.3rem);
+    z-index: 900;
+  }
+
+  .friendsStatPage button {
+    transform: translateY(2.7rem) translateX(-0.7rem);
+  }
+
+  .ijSvdH {
+    width: 1px !important;
+  }
+
+  .sc-kDTinF div {
+    width: 345px;
+  }
+
+  .iNVNay input {
+    width: 335px !important;
+  }
+
+  .gWWvxi {
+    width: 360px !important;
+  }
+
+  .ghVaMM {
+    width: 99% !important;
+    margin-top: 1rem;
+    padding: 1rem 0.5rem;
+    margin-left: 0.5rem;
+    border: solid 1px #e7e7e7;
+    border-radius: 20px;
+  }
+
+  .friendsStatPage div:nth-of-type(1) {
+    transform: translateX(-0.5rem);
+    z-index: 900;
+  }
+
+  .friendsStatPage div:nth-of-type(2) {
+    padding-bottom: 50px;
+    transform: translateX(-0.5rem) translateY(-1rem);
+    background-color: white;
+  }
+
+  .friendsStatPage .ant-progress {
+    padding-top: 0 !important;
+    padding-left: 0 !important;
+    transform: translateX(2.5rem) !important;
+    max-width: 80%;
+  }
+
+  .friendsStatPage .ant-progress-text {
+    top: 0.5rem !important;
+    left: -2.1rem !important;
+  }
+
+  .ant-progress-outer {
+    padding: 0 1rem !important;
+  }
+
+  .ghVaMM {
+    transform: translateX(-1rem) translateY(1rem);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ghVaMM #statsGraph {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 0.8rem;
+  }
+
+  .friendsStatPage #statsGraph {
+    padding-top: 9rem !important;
+  }
+
+  #statsGraph h2 {
+    font-size: 12pt;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  #hamburgerIcon {
+    transform: translateX(-2px);
+  }
+
+  .fHTaHh .gWWvxi {
+    transform: translateY(4rem);
+  }
+
+  .fHTaHh .gWWvxi .ant-progress {
+    transform: translateY(-1rem) !important;
+  }
+
+  .fHTaHh .gWWvxi .ant-progress .ant-progress-text {
+    transform: translateY(-2.3rem) translateX(1.8rem) !important;
+  }
+
+  /** Main timer **/
+  .hMfzoD .EXcsJ {
+    width: 0 !important;
+  }
+}

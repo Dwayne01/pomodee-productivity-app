@@ -1,0 +1,344 @@
+@media screen and (max-width: 450px) {
+  .hMfzoD .body-container {
+    padding: 0px !important;
+  }
+
+  .rankingSection {
+    width: 330px;
+  }
+
+  .scoreBar {
+    width: 80px !important;
+    transform: translateX(-1rem);
+  }
+
+  .scrollbar {
+    width: 90%;
+    height: 600px;
+  }
+
+  .ranking {
+    width: 300px;
+  }
+
+  .bgBar {
+    width: 260px;
+  }
+
+  .rankingNum {
+    color: #3928b1;
+    font-weight: 600;
+  }
+
+  .isICjH {
+    display: none;
+  }
+
+  span.ranking:nth-child(1) .rankingNum,
+  span.ranking:nth-child(2) .rankingNum,
+  span.ranking:nth-child(3) .rankingNum {
+    color: #ffffff !important;
+    font-weight: 600;
+    background-color: #bf8033 !important;
+    border-radius: 50px !important;
+    width: 25px !important;
+    height: 25px !important;
+    text-align: center !important;
+  }
+
+  span.ranking:nth-child(1) {
+    position: relative !important;
+  }
+
+  span.ranking:nth-child(2) {
+    position: absolute !important;
+    top: 8rem !important;
+    left: 1rem !important;
+  }
+
+  span.ranking:nth-child(3) {
+    position: absolute !important;
+  }
+
+  span.ranking:nth-child(1),
+  span.ranking:nth-child(2),
+  span.ranking:nth-child(3) {
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+
+  span.ranking:nth-child(1) .bgBar,
+  span.ranking:nth-child(2) .bgBar,
+  span.ranking:nth-child(3) .bgBar {
+    width: 0px !important;
+  }
+
+  span.ranking:nth-child(1) .scoreBar,
+  span.ranking:nth-child(2) .scoreBar,
+  span.ranking:nth-child(3) .scoreBar {
+    background-color: #f34506 !important;
+    width: 90px !important;
+  }
+
+  .userName {
+    font-weight: bold;
+    font-size: 10pt;
+  }
+
+  span.ranking:nth-child(1) .userName,
+  span.ranking:nth-child(2) .userName,
+  span.ranking:nth-child(3) .userName {
+    font-size: 14pt !important;
+  }
+
+  span.ranking:nth-child(1) .userImg {
+    width: 120px;
+    height: 120px;
+    transform: translateX(3rem) translateY(-1.5rem);
+  }
+
+  span.ranking:nth-child(2) .userImg {
+    width: 90px;
+    height: 90px;
+    transform: translateX(-4.5rem) translateY(-10rem);
+  }
+
+  span.ranking:nth-child(3) .userImg {
+    width: 90px;
+    height: 90px;
+    transform: translateX(11.4rem) translateY(-14.5rem);
+  }
+
+  span.ranking:nth-child(1) .userName {
+    transform: translateX(-4.3rem) translateY(3rem);
+  }
+
+  span.ranking:nth-child(2) .userName {
+    transform: translateX(-10.8rem) translateY(-6.5rem);
+  }
+
+  span.ranking:nth-child(3) .userName {
+    transform: translateX(5.8rem) translateY(-11.2rem);
+  }
+
+  span.ranking:nth-child(1) .scoreBar {
+    transform: translateX(-3.5rem) translateY(5rem);
+  }
+
+  span.ranking:nth-child(2) .scoreBar {
+    transform: translateX(-10.2rem) translateY(-4.5rem);
+  }
+
+  span.ranking:nth-child(3) .scoreBar {
+    transform: translateX(5.8rem) translateY(-9.2rem);
+  }
+
+  span.ranking:nth-child(1) .rankingNum {
+    transform: translateX(9.9rem) translateY(-4.5rem);
+    z-index: 900;
+  }
+
+  span.ranking:nth-child(2) .rankingNum {
+    transform: translateX(0.7rem) translateY(-11.9rem);
+    z-index: 900;
+  }
+
+  span.ranking:nth-child(3) .rankingNum {
+    transform: translateX(16.5rem) translateY(-16.5rem);
+    z-index: 900;
+  }
+
+  .lgGqfF {
+    width: 0 !important;
+  }
+
+  .rankingSection {
+    transform: translateX(-0.7rem);
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .scrollbar {
+    width: 1000px !important;
+    height: 650px !important;
+    margin-left: 40px !important;
+  }
+
+  .rankingSection {
+    padding: 70px 90px !important;
+    width: 880px !important;
+  }
+
+  .isICjH {
+    display: block;
+  }
+
+  .bgBar {
+    width: 600px !important;
+  }
+
+  .scoreBar {
+    width: 20% !important;
+  }
+
+  .scrollbar > div:nth-of-type(3) {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 8px !important;
+  }
+
+  .rankingNum {
+    color: #3928b1;
+    font-size: 14pt;
+    font-weight: 700;
+    width: 15px;
+  }
+
+  span.ranking:nth-child(1),
+  span.ranking:nth-child(2),
+  span.ranking:nth-child(3) {
+    display: inline-block !important;
+    padding: 30px;
+    margin-bottom: 80px;
+  }
+
+  span.ranking:nth-child(1) .bgBar,
+  span.ranking:nth-child(2) .bgBar,
+  span.ranking:nth-child(3) .bgBar {
+    width: 0px !important;
+  }
+
+  span.ranking:nth-child(1) .scoreBar,
+  span.ranking:nth-child(2) .scoreBar,
+  span.ranking:nth-child(3) .scoreBar {
+    background-color: #f34506 !important;
+    width: 120px !important;
+  }
+
+  .userName {
+    font-weight: bold;
+    font-size: 12pt;
+  }
+
+  span.ranking:nth-child(1) .userName,
+  span.ranking:nth-child(2) .userName,
+  span.ranking:nth-child(3) .userName {
+    font-size: 14pt !important;
+    word-wrap: break-word !important;
+  }
+
+  span.ranking:nth-child(1) .userImg {
+    width: 140px;
+    height: 140px;
+  }
+
+  span.ranking:nth-child(2) .userImg,
+  span.ranking:nth-child(3) .userImg {
+    width: 100px;
+    height: 100px;
+    position: relative;
+  }
+
+  span.ranking:nth-child(1) .rankingNum,
+  span.ranking:nth-child(2) .rankingNum,
+  span.ranking:nth-child(3) .rankingNum {
+    color: #ffffff !important;
+    font-weight: 600;
+    background-color: #bf8033 !important;
+    border-radius: 50px !important;
+    width: 25px !important;
+    height: 25px !important;
+    text-align: center !important;
+  }
+
+  span.ranking:nth-child(1) .rankingNum {
+    position: absolute !important;
+    top: 3.6rem !important;
+    left: 31.5rem !important;
+    z-index: 900 !important;
+  }
+
+  span.ranking:nth-child(2) .rankingNum {
+    position: absolute !important;
+    top: 4.9rem !important;
+    left: 15.2rem !important;
+    z-index: 900 !important;
+  }
+
+  span.ranking:nth-child(3) .rankingNum {
+    position: absolute !important;
+    top: 4.9rem !important;
+    left: 46.1rem !important;
+    z-index: 900 !important;
+  }
+
+  span.ranking:nth-child(10) .rankingNum {
+    transform: translateX(-0.4rem);
+  }
+
+  span.ranking:nth-child(1) .userImg {
+    position: absolute !important;
+    top: 3.5rem !important;
+    left: 25rem !important;
+  }
+
+  span.ranking:nth-child(2) .userImg {
+    position: absolute !important;
+    top: 5rem !important;
+    left: 10.7rem !important;
+  }
+
+  span.ranking:nth-child(3) .userImg {
+    position: absolute !important;
+    top: 5rem !important;
+    left: 41.5rem !important;
+  }
+
+  span.ranking:nth-child(1) .userName {
+    position: absolute !important;
+    top: 5rem !important;
+    left: 18.8rem !important;
+  }
+
+  span.ranking:nth-child(2) .userName {
+    position: absolute !important;
+    top: 4rem !important;
+    left: -1.8rem !important;
+  }
+
+  span.ranking:nth-child(3) .userName {
+    position: absolute !important;
+    top: 4rem !important;
+    left: 27.3rem !important;
+  }
+
+  span.ranking:nth-child(1) .scoreBar {
+    position: absolute !important;
+    top: 7rem !important;
+    left: 18.2rem !important;
+  }
+
+  span.ranking:nth-child(2) .scoreBar {
+    position: absolute !important;
+    top: 6rem !important;
+    left: -1rem !important;
+  }
+
+  span.ranking:nth-child(3) .scoreBar {
+    position: absolute !important;
+    top: 6rem !important;
+    left: 26rem !important;
+  }
+
+  #statsGraph {
+    text-align: center !important;
+    padding-top: 1rem !important;
+  }
+
+  #statsGraph h3 {
+    font-size: 16pt;
+  }
+
+  .friendsStatPage #statsGraph h3 {
+    font-size: 12pt;
+  }
+}
