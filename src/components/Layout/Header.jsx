@@ -10,7 +10,7 @@ import Logo from '../svgs/Logo';
 import useLogout from '../../hooks/useLogout';
 import ProgressAvatar from '../ProgressAvatar';
 import { NotificationContext } from '../../context/NotificationContext';
-import { handleGetNotification } from '../../util.js/getNotifications';
+import { handleGetNotification } from '../../util/getNotifications';
 import AvatarImg from '../AvatarImg';
 import { getFriendsList } from '../../services/friends.services';
 import { createRequests } from '../../services/request.services';

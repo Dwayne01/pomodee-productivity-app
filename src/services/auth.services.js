@@ -1,4 +1,6 @@
 import axios from 'axios';
+import {auth} from '../util/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 
 export const baseUrl =
   process.env.NODE_ENV === 'development'
@@ -7,21 +9,48 @@ export const baseUrl =
 
 export const login = async (params) => {
   try {
-    const user = await axios.post(`${baseUrl}/auth/login`, params).then((res) => res.data);
-    return user;
+    const userCredential = await signInWithEmailAndPassword(auth, params.email, params.password);
+    return userCredential.user;
   } catch (error) {
-    console.log(error);
-    return null;
+    throw error;
   }
 };
 
 export const signup = async (params) => {
   try {
-    const user = await axios.post(`${baseUrl}/auth/register`, params).then((res) => res.data);
+    const userCredential = await createUserWithEmailAndPassword(auth, params.email, params.password);
+    return userCredential.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const googleSignin = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    const res = await signInWithPopup(auth, provider);
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const userCredential = GoogleAuthProvider.credentialFromResult(res);
+
+    return res.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const facebookSignin = async () => {
+  const provider = new FacebookAuthProvider();
+  try {
+    const res = await signInWithPopup(auth, provider);
+    const user = res.user;
+
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    const credential = FacebookAuthProvider.credentialFromResult(res);
+    const accessToken = credential.accessToken;
 
     return user;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 

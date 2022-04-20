@@ -46,30 +46,27 @@ const SignUp = ({ toggleSignUp }) => {
     };
 
     try {
-      const user = await signup(userData);
+      await signup(userData);
 
-      if (user.message !== 'User already exist') {
-        toggleSignUp();
-        notification.open({
-          message: 'Authentication',
-          description: 'Registration completed successfully',
-          style: {
-            backgroundColor: '#4BB543',
-            color: 'white'
-          }
-        });
-      } else {
-        notification.open({
-          message: 'Authentication Error',
-          description: 'User already exist',
-          style: {
-            backgroundColor: '#ff0033',
-            color: 'white'
-          }
-        });
-      }
+      toggleSignUp();
+      notification.open({
+        message: 'Authentication',
+        description: 'Registration completed successfully',
+        style: {
+          backgroundColor: '#4BB543',
+          color: 'white'
+        }
+      });
     } catch (error) {
-      console.log(error);
+      notification.open({
+        message: 'Authentication Error',
+        description: `${error.message.slice(10)}`,
+        style: {
+          backgroundColor: '#ff0033',
+          color: 'white'
+        }
+      });
+      console.log(error.code);
     } finally {
       setIsLoading(false);
     }

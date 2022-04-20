@@ -5,6 +5,7 @@ import { login } from '../../services/auth.services';
 import { notification, Spin } from 'antd';
 import { AuthContext } from '../../context/AuthContext';
 import useLocalstorage from '../../hooks/useLocalstorage';
+import SocialAuthButtons from '../../components/socialAuthButtons';
 
 const InputBox = styled.div`
   input {
@@ -21,7 +22,7 @@ const InputBox = styled.div`
 `;
 
 function SignIn({ toggleSignIn }) {
-  const [isLoading, setIsLoading, setIsAuth] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const { setIsSignedIn } = useContext(AuthContext);
   const { handleSetLocalStorage } = useLocalstorage();
 
@@ -49,29 +50,27 @@ function SignIn({ toggleSignIn }) {
     try {
       const user = await login(userData);
 
-      if (user) {
-        notification.open({
-          message: 'Authentication',
-          description: 'Login successfull',
-          style: {
-            backgroundColor: '#4BB543',
-            color: 'white'
-          }
-        });
+      notification.open({
+        message: 'Authentication',
+        description: 'Login successfull',
+        style: {
+          backgroundColor: '#4BB543',
+          color: 'white'
+        }
+      });
 
-        handleSetLocalStorage('userInfo', user.user._id);
-        setIsSignedIn(true);
-        setIsAuth(false);
-      }
+      handleSetLocalStorage('userInfo', user.accessToken);
+      setIsSignedIn(true);
     } catch (error) {
       notification.open({
         message: 'Authenticator Error',
-        description: error,
+        description: `${error.message.slice(10)}`,
         style: {
           backgroundColor: '#ff0033',
           color: 'white'
         }
       });
+      console.log(error.code);
     } finally {
       setIsLoading(false);
     }
@@ -113,6 +112,8 @@ function SignIn({ toggleSignIn }) {
       >
         {isLoading && <Spin style={{ color: '#3928B1' }} />} Login
       </Button>
+
+      <SocialAuthButtons authSuccess={() => setIsSignedIn(true)} />
 
       <p className="text-right" style={{ marginLeft: '100px', color: '#fff', marginTop: '10px' }}>
         Don't have an account?{' '}

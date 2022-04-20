@@ -6,7 +6,7 @@ import Layout from '../../components/Layout';
 import { acceptFriendRequest, deleteRequest } from '../../services/request.services';
 import styled from 'styled-components';
 import { NotificationContext } from '../../context/NotificationContext';
-import { handleGetNotification } from '../../util.js/getNotifications';
+import { handleGetNotification } from '../../util/getNotifications';
 import { Link, useHistory } from 'react-router-dom';
 import AvatarImg from '../../components/AvatarImg';
 

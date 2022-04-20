@@ -15,6 +15,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-prettier": "^4.0.0",
+    "firebase": "^9.6.11",
     "flowbite": "^1.4.1",
     "howler": "^2.2.3",
     "i": "^0.3.7",

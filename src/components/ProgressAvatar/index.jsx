@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Progress } from 'antd';
 import styled from 'styled-components';
-import { getLevel } from '../../util.js/getLevel';
+import { getLevel } from '../../util/getLevel';
 
 const Container = styled.div`
   display: grid;
