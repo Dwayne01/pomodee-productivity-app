@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { notification, Spin } from 'antd';
 import Button from 'react-bootstrap/Button';
 import { signup } from '../../services/auth.services';
+import SocialAuthButtons from '../../components/socialAuthButtons';
 
 const InputBox = styled.div`
   input {
@@ -83,6 +84,7 @@ const SignUp = ({ toggleSignUp }) => {
           placeholder="Username"
           value={values.username}
           onChange={handleChange}
+          data-testid="register-form-username"
         />{' '}
         <br />
         <input
@@ -93,6 +95,7 @@ const SignUp = ({ toggleSignUp }) => {
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
+          data-testid="register-form-email"
         />{' '}
         <br />
         <input
@@ -103,6 +106,7 @@ const SignUp = ({ toggleSignUp }) => {
           required
           value={values.password}
           onChange={handleChange}
+          data-testid="register-form-password"
         />{' '}
       </InputBox>
 
@@ -118,9 +122,12 @@ const SignUp = ({ toggleSignUp }) => {
           borderRadius: '50px',
           margin: '20px 50px'
         }}
+        data-testid="register-form-btn"
       >
         {isLoading && <Spin style={{ color: '#3928B1' }} />} Sign Up
       </Button>
+
+      <SocialAuthButtons authSuccess={() => toggleSignUp()} />
 
       <p className="text-right" style={{ marginLeft: '100px', color: 'white', marginTop: '10px' }}>
         Already have an account?

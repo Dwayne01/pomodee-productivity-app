@@ -323,6 +323,7 @@ const LoggedOutHeader = ({ handleToggleAuth, isAuth }) => {
             onClick={() => {
               handleToggleAuth('login');
             }}
+            data-testid="login-btn"
           >
             Login
           </button>
@@ -333,6 +334,7 @@ const LoggedOutHeader = ({ handleToggleAuth, isAuth }) => {
             onClick={() => {
               handleToggleAuth('signup');
             }}
+            data-testid="register-btn"
           >
             Signup
           </button>

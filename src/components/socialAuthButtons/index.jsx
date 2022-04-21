@@ -62,7 +62,7 @@ function SocialAuthButtons({authSuccess}) {
   }
   return (
     <ButtonsContainer>
-      <StyledButton onClick={(e) => SigninGoogle(e)}>
+      <StyledButton onClick={(e) => SigninGoogle(e)} data-testid="google-auth-btn">
         Google
         <FcGoogle size={25} className="auth-icon" />
       </StyledButton>

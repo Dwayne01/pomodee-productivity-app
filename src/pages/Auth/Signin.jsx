@@ -86,6 +86,7 @@ function SignIn({ toggleSignIn }) {
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
+          data-testid="login-form-email"
         />
         <input
           type="password"
@@ -94,6 +95,7 @@ function SignIn({ toggleSignIn }) {
           placeholder="Password"
           value={values.password}
           onChange={handleChange}
+          data-testid="login-form-password"
         />
       </InputBox>
 
@@ -109,6 +111,7 @@ function SignIn({ toggleSignIn }) {
           borderRadius: '50px',
           margin: '20px 50px'
         }}
+        data-testid="login-form-btn"
       >
         {isLoading && <Spin style={{ color: '#3928B1' }} />} Login
       </Button>
