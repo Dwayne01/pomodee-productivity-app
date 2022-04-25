@@ -1,13 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Spin } from "antd";
 import styled from "styled-components";
-import hamburgerIcon from "./images_layout/icon_hamburgerMenu.svg";
 import { Link } from "react-router-dom";
 import Bell from "../svgs/Bell";
 import AddUser from "../svgs/AddUser";
-import User from "../svgs/User";
 import Logo from "../svgs/Logo";
-import useLogout from "../../hooks/useLogout";
 import ProgressAvatar from "../ProgressAvatar";
 import { NotificationContext } from "../../context/NotificationContext";
 import { handleGetNotification } from "../../util.js/getNotifications";
@@ -199,8 +196,6 @@ const LoggedInHeader = ({ username, setUser, user }) => {
     await createRequests(params).then((res) => setIsOpen(false));
   };
 
-  const { logout } = useLogout(setUser, user);
-
   const { notifications, setNotifications } = useContext(NotificationContext);
 
   useEffect(() => {
@@ -208,37 +203,24 @@ const LoggedInHeader = ({ username, setUser, user }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
-  const openHamburgerMenu = () => {
-    const navBar = document.getElementById("navBarWrapper");
-    navBar.style.left = "0%";
-  };
 
-  const openProfileIconPopUp = () => {
-    const profileIconPopUp = document.getElementById("profileIconPopUp");
-    if (profileIconPopUp.style.display === "none") {
-      profileIconPopUp.style.display = "flex";
-    } else {
-      profileIconPopUp.style.display = "none";
-    }
-  };
+  // const toggleModal = () => {
+  //   setIsOpen(!isOpen);
+  // };
 
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
+  // document.addEventListener(
+  //   "click",
+  //   (e) => {
+  //     const friendsListModal = document.getElementById("friend-invite-list");
 
-  document.addEventListener(
-    "click",
-    (e) => {
-      const friendsListModal = document.getElementById("friend-invite-list");
-
-      if (friendsListModal && !friendsListModal.contains(e.target)) {
-        setIsOpen(false);
-      }
-      const profileIconPopUp = document.getElementById("profileIconPopUp");
-      profileIconPopUp.style.display = "none";
-    },
-    true
-  );
+  //     if (friendsListModal && !friendsListModal.contains(e.target)) {
+  //       setIsOpen(false);
+  //     }
+  //     const profileIconPopUp = document.getElementById("profileIconPopUp");
+  //     profileIconPopUp.style.display = "none";
+  //   },
+  //   true
+  // );
 
   return (
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -252,7 +234,7 @@ const LoggedInHeader = ({ username, setUser, user }) => {
              {notifications.length > 0 && <span class="top-0 left-15 absolute  w-3.5 h-3.5 bg-pomodee-orange-100 border-2 border-white dark:border-gray-800 rounded-full"></span>}
             </Link> 
             <div className="w-1/3 flex justify-end">
-              <div className="text-pomodee-purple-100" onClick={toggleModal}>
+              <div className="text-pomodee-purple-100">
                 <AddUser width={35} />
               </div>
               <div>{isOpen && <FriendList user={user} invite={invite} />}</div>
