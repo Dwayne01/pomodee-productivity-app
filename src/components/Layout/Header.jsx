@@ -159,10 +159,7 @@ const ContainerLoggedOutHeader = styled.div`
   display: flex;
   padding: 20px;
   justify-content: space-between;
-  .auth {
-    display: 'flex';
-  }
-
+ 
   .login {
     padding: 10px 20px;
     border-radius: 50px;
@@ -313,13 +310,14 @@ const FriendList = ({ user, invite }) => {
 };
 
 const LoggedOutHeader = ({ handleToggleAuth, isAuth }) => {
+  
   return (
     <ContainerLoggedOutHeader>
       <Logo color="#fff" />
-      <div className="auth">
+      <div>
         {!isAuth && (
           <button
-            className="login"
+              className="border bg-white text-pomodee-purple-100 focus:outline-none focus:ring-4 focus:ring-purple-800 font-medium rounded-full text-sm px-4 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={() => {
               handleToggleAuth('login');
             }}
@@ -329,12 +327,22 @@ const LoggedOutHeader = ({ handleToggleAuth, isAuth }) => {
         )}
         {!isAuth && (
           <button
-            className="signup"
+           className="border text-white focus:outline-none focus:ring-4 focus:ring-purple-800 font-medium rounded-full text-sm px-4 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={() => {
               handleToggleAuth('signup');
             }}
           >
             Signup
+          </button>
+        )}
+          {isAuth && (
+          <button
+           className="border text-white focus:outline-none focus:ring-4 focus:ring-purple-800 font-medium rounded-full text-sm px-4 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            onClick={() => {
+              handleToggleAuth('close');
+            }}
+          >
+            Close
           </button>
         )}
       </div>
@@ -413,7 +421,7 @@ const LoggedInHeader = ({ username, setUser, user }) => {
 
       <div id="desktopHeaderBar">
         <Link id="notification" to="/notifications">
-          <Bell size={10} />
+          <Bell />
           {notifications.length > 0 && <div className="dot">{notifications.length}</div>}
         </Link>
         <div>
@@ -447,12 +455,12 @@ const LoggedInHeader = ({ username, setUser, user }) => {
 
 const Header = ({ isAuth, setIsAuth, setUser, user, username, handleToggleAuth, isSignedIn }) => {
   return (
-    <>
+    <div className='h-40'>
       {!isSignedIn && <LoggedOutHeader handleToggleAuth={handleToggleAuth} isAuth={isAuth} />}
       {isSignedIn && (
         <LoggedInHeader setUser={setUser} user={user} username={username} isAuth={isSignedIn} setIsAuth={setIsAuth} />
       )}
-    </>
+    </div>
   );
 };
 

@@ -139,9 +139,7 @@ const Home = () => {
           roomName={roomName || user.username}
         />
         {isSignedIn && (
-          <div id="online-users">
             <OnlineUsers sendSignal={sendSignal} admin={!roomName} onlinePeople={onlinePeople || []} />
-          </div>
         )}
       </Container>
     </Layout>

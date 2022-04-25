@@ -9,7 +9,7 @@ const InputBox = styled.div`
     border: none;
     border-bottom: 1px solid white;
     margin-bottom: 40px;
-    width: 400px;
+    width: 100%;
     background-color: transparent;
     color: white;
     &::placeholder {
@@ -76,7 +76,7 @@ const SignUp = ({ toggleSignUp }) => {
   };
 
   return (
-    <form style={{ margin: 50 }} onSubmit={handleSubmit}>
+    <form className='text-center md:w-96 mx-16'  onSubmit={handleSubmit}>
       <InputBox>
         <input
           type="text"
@@ -113,21 +113,15 @@ const SignUp = ({ toggleSignUp }) => {
         variant="primary"
         size="lg"
         type="submit"
+        className='w-40 mb-10 rounded-full bg-white text-pomodee-purple-100 '
         disabled={isLoading}
-        style={{
-          width: '300px',
-          backgroundColor: '#fff',
-          color: '#3928B1',
-          borderRadius: '50px',
-          margin: '20px 50px'
-        }}
       >
         {isLoading && <Spin style={{ color: '#3928B1' }} />} Sign Up
       </Button>
 
-      <p className="text-right" style={{ marginLeft: '100px', color: 'white', marginTop: '10px' }}>
+      <p className="text-center text-white">
         Already have an account?
-        <strong style={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: 5 }} onClick={toggleSignUp}>
+        <strong style={{ textDecoration: 'underline', cursor: 'pointer', marginLeft: 5 }} onClick={() => toggleSignUp("register")}>
           Login
         </strong>
       </p>

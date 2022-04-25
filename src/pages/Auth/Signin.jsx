@@ -78,7 +78,7 @@ function SignIn({ toggleSignIn }) {
   };
 
   return (
-    <form style={{ margin: 50 }}>
+    <form className='text-center md:w-96 mx-16'>
       <InputBox>
         <input
           type="email"
@@ -103,20 +103,14 @@ function SignIn({ toggleSignIn }) {
         size="lg"
         onClick={handleSubmit}
         disabled={isLoading}
-        style={{
-          width: '300px',
-          backgroundColor: '#fff',
-          color: '#3928B1',
-          borderRadius: '50px',
-          margin: '20px 50px'
-        }}
+        className='w-40 mb-10 rounded-full bg-white text-pomodee-purple-100'
       >
         {isLoading && <Spin style={{ color: '#3928B1' }} />} Login
       </Button>
 
-      <p className="text-right" style={{ marginLeft: '100px', color: '#fff', marginTop: '10px' }}>
+      <p className="text-center text-white">
         Don't have an account?{' '}
-        <strong style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={toggleSignIn}>
+        <strong style={{ textDecoration: 'underline', cursor: 'pointer' }} onClick={() => toggleSignIn("register")}>
           Register
         </strong>
       </p>

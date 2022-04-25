@@ -3,11 +3,11 @@ import { Howl, Howler } from 'howler';
 import styled from 'styled-components';
 import { Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { BsPlayFill, BsPause } from 'react-icons/bs';
-import { VscRefresh } from 'react-icons/vsc';
+import { BsPlayFill, BsPause, BsStopFill } from 'react-icons/bs';
 import { Progress } from 'antd';
 import bell from '../PomodeeTimer/bell-ringing-05.mp3';
 import { addCycle, saveCycles } from '../../services/auth.services';
+import cx from 'classnames';
 
 const Container = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const Container = styled.div`
   }
 
   .ant-progress-text {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: bold;
     color: ${(props) => (props.isSignedIn ? '#281998' : '#fff')} !important;
   }
@@ -211,13 +211,13 @@ const PomodeeTimer = ({
               }
               percent={countDown.percent || 100}
               type="circle"
-              width={300}
+                width={250}
               format={CountDown}
               strokeWidth={10}
             />
           </>
           <div
-            className="control-panel"
+            className="control-panel mt-10"
             style={{
               display: 'flex',
               cursor: 'pointer',
@@ -228,14 +228,14 @@ const PomodeeTimer = ({
           >
             <button
               style={{ border: 'none', background: 'transparent', transform: 'translateX(.5rem)' }}
-              onClick={reset}
+                onClick={reset}
               disabled={!hasControl}
             >
-              <VscRefresh color={isSignedIn ? '#281998' : '#fff'} size={65.5} className="timer-refresh-button" />
+              <BsStopFill color={isSignedIn ? '#F34506' : '#fff'} size={60} className="timer-refresh-button" />
             </button>
 
             {!countDown.isPlaying ? (
-              <button style={{ border: 'none', background: 'transparent' }} onClick={play} disabled={!hasControl}>
+              <button  style={{ border: 'none', background: 'transparent' }} onClick={play} disabled={!hasControl}>
                 <BsPlayFill color={isSignedIn ? '#281998' : '#fff'} size={110.5} className="timer-play-button" />
               </button>
             ) : (
@@ -245,20 +245,14 @@ const PomodeeTimer = ({
             )}
 
             {user && (
-              <button
-                style={{
-                  background: hasControl ? '#F34506' : 'lightgray',
-                  padding: 10,
-                  borderRadius: 50,
-                  border: 'none',
-                  color: '#fff'
-                }}
-                onClick={close}
-                disabled={!hasControl}
-              >
-                Close room
-              </button>
-            )}
+                <button
+                  onClick={close}
+                  disabled={!hasControl}
+                  type="button"
+                  className={cx("text-white bg-gradient-to-r  hover:bg-gradient-to-br font-medium rounded-full text-sm px-3 py-2.5 text-center mr-2 mb-2",hasControl ? 'from-red-400 via-red-500 to-red-600' : 'from-gray-200 via-gray-300 to-gray-400')}>Close Room</button>
+              )}
+              
+            
           </div>
         </>
       )}

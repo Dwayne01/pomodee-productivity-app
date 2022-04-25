@@ -1,4 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { LoadingOutlined } from '@ant-design/icons';
+import { Spin } from 'antd';
+import cx from 'classnames';
 import styled from 'styled-components';
 import SignIn from '../../pages/Auth/Signin';
 import SignUp from '../../pages/Auth/Signup';
@@ -8,31 +11,6 @@ import { AuthContext } from '../../context/AuthContext';
 import useUserInfo from '../../hooks/useUserInfo';
 import Footer from './Footer';
 import { useHistory } from 'react-router-dom';
-import { LoadingOutlined } from '@ant-design/icons';
-import { Spin } from 'antd';
-
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-
-  .auth-container {
-    border-left: 1px solid white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 50px;
-  }
-
-  @media screen and (max-width: 799px) {
-  }
-
-  @media screen and (min-width: 800px) {
-    .body-container {
-      padding: 20px;
-      width: 100%;
-    }
-  }
-`;
 
 const LoaderPageStyle = styled.div`
   margin: auto;
@@ -57,28 +35,16 @@ const Layout = ({ children }) => {
 
   const { userId, setUser } = useUserInfo();
 
-  const [color, setColor] = useState('#3928B1');
-  const [toggleAuth, setToggleAuth] = useState(false);
+  const [color, setColor] = useState('bg-pomodee-purple-100');
+  const [authType, setAuthType] = useState('login');
   const antIcon = <LoadingOutlined style={{ color: '#F34506', fontSize: 24 }} spin />;
 
   useEffect(() => {
     if (!user) return;
-    setColor('white');
+    setColor('bg-white');
     setIsSignedIn(true);
   }, [setIsSignedIn, user]);
 
-  const handleToggleAuth = (type) => {
-    setIsAuth(true);
-    if (type === 'login') {
-      setToggleAuth(true);
-      return;
-    }
-    if (type === 'signup') {
-      setToggleAuth(false);
-      return;
-    }
-    setToggleAuth(!toggleAuth);
-  };
 
   useEffect(() => {
     if (!userId && history.location.pathname !== '/') {
@@ -100,8 +66,18 @@ const Layout = ({ children }) => {
   } else {
     selectedPage = 'timer';
   }
+
+  const handleToggleAuth = (type) => { 
+    if (type === 'close') { 
+      setIsAuth(false);
+      return
+    }
+    setAuthType(type)
+    setIsAuth(true);
+  }
+
   return (
-    <div style={{ background: color, height: '100vh', overflowY: 'scroll' }}>
+    <div className={cx("h-screen overflow-scroll", color)}>
       <Header
         username={user ? user.username : ''}
         isAuth={isAuth}
@@ -111,19 +87,19 @@ const Layout = ({ children }) => {
         setUser={setUser}
         user={user}
       />
-      <Container isAuth={isSignedIn}>
+      <div className='flex xs:flex-col md:flex-row h-3/4'>
         {isSignedIn && <Sidebar selectedPage={selectedPage} />}
-        <div className="body-container">{children}</div>
+        <div className="w-screen xs:order-2 md:order-1">{children}</div>
         {!isSignedIn && (
-          <>
+          <div className='xs:order-1 md:order-2'>
             {isAuth && (
-              <div className="auth-container">
-                {toggleAuth ? <SignIn toggleSignIn={handleToggleAuth} /> : <SignUp toggleSignUp={handleToggleAuth} />}
-              </div>
+              <>
+                {authType === 'login' ? <SignIn toggleSignIn={handleToggleAuth} /> : <SignUp toggleSignUp={handleToggleAuth} />}
+              </>
             )}
-          </>
+          </div>
         )}
-      </Container>
+      </div>
       <Footer isSignedIn={isSignedIn} />
     </div>
   );
