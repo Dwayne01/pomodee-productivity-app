@@ -174,7 +174,7 @@ const PomodeeTimer = ({
 
   const antIcon = <LoadingOutlined style={{ color: '#F34506', fontSize: 24 }} spin />;
   return (
-    <Container isSignedIn={isSignedIn}>
+    <Container className='xs:mt-12 md:mt-0' isSignedIn={isSignedIn}>
       {loading ? (
         <LoaderPageStyle>
           <Spin indicator={antIcon} />

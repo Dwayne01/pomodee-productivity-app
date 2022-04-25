@@ -2,13 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import useLogout from '../../hooks/useLogout';
 import Analysis from '../svgs/Analysis';
-// import Bell from '../svgs/Bell';
 import Friends from '../svgs/Friends';
 import HallOfFame from '../svgs/HallOfFame';
 import Timer from '../svgs/Timer';
-// import User from '../svgs/User';
 import {BiLogOut} from 'react-icons/bi';
-
+import {RiSettings3Fill} from 'react-icons/ri';
 
 const Sidebar = () => {
   const { logout } = useLogout();
@@ -41,20 +39,12 @@ const Sidebar = () => {
               Hall of Fame
             </Link>
           </li>
-          {/* <li  className='text-lg mt-3'>
-            <Link to="/notifications" className="flex hover:bg-pomodee-orange-100 px-3 py-2 hover:rounded-full align-middle hover:text-white text-pomodee-purple-100" >
-              <Bell className="mr-2" width={30} height={25} />
-              Notifications
+          <li className='text-lg mt-3'>
+            <Link to="/hallOfFame" className=" flex hover:bg-pomodee-orange-100 px-3 py-2 hover:rounded-full items-center hover:text-white text-pomodee-purple-100">
+              <RiSettings3Fill className="mr-3 mt-1 text-[1.8rem]" />
+              Settings
             </Link>
           </li>
-
-          <li className='text-lg mt-3'>
-            <Link to="/profile" className="flex hover:bg-pomodee-orange-100 px-3 py-2 hover:rounded-full align-middle hover:text-white text-pomodee-purple-100">
-              <User className="mr-2" width={30} height={25} />
-              Profile
-            </Link>
-          </li> */}
-
           <li className="flex hover:bg-pomodee-orange-100 text-lg px-3 py-2 mt-2 hover:rounded-full align-middle hover:text-white text-pomodee-purple-100">
             <BiLogOut size={30} />
             <p className='ml-3 mb-0' onClick={logout}>Log Out</p>

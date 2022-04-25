@@ -55,7 +55,7 @@ const ProgressAvatar = ({ cycles }) => {
 
   return (
     <Container>
-      <img className="img" alt="avatar" src={level.avatar} width="100" />
+      <img  className="max-w-none img" alt="avatar" src={level.avatar} width="100" />
       <div className="score">
         <strong>
           {cycles} / {level.max}
