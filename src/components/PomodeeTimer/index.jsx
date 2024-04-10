@@ -8,6 +8,7 @@ import { Progress } from 'antd';
 import bell from '../PomodeeTimer/bell-ringing-05.mp3';
 import { addCycle, saveCycles } from '../../services/auth.services';
 import cx from 'classnames';
+import { DialogueBox } from '../dialogue';
 
 const Container = styled.div`
   display: flex;
@@ -86,6 +87,7 @@ const PomodeeTimer = ({
 }) => {
   const [time, setTime] = useState('');
   const [cycle, setCycle] = useState(null);
+  const [showWarningModal, setShowWarningModal] = useState(false);
 
   useEffect(() => {
     if (!cycle && !countDown.cyle) {
@@ -246,14 +248,15 @@ const PomodeeTimer = ({
 
             {user && (
                 <button
-                  onClick={close}
+                  onClick={() => setShowWarningModal(!showWarningModal)}
                   disabled={!hasControl}
                   type="button"
                   className={cx("text-white bg-gradient-to-r  hover:bg-gradient-to-br font-medium rounded-full text-sm px-3 py-2.5 text-center mr-2 mb-2",hasControl ? 'from-red-400 via-red-500 to-red-600' : 'from-gray-200 via-gray-300 to-gray-400')}>Close Room</button>
               )}
               
             
-          </div>
+            </div>
+            <DialogueBox isOpen={showWarningModal} onOkay={close} onClose={() => setShowWarningModal(!showWarningModal)} message="Are you sure you want to close the room ?" />
         </>
       )}
     </Container>
